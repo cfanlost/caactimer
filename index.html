@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAACTimer - CAAC地面站考试倒计时</title>
+    <meta name="description" content="CAAC无人机地面站实操考试专用倒计时工具。6分钟标准时长、语音提醒、全屏模考、纯本地离线运行。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- 背景网格 -->
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">
+            <svg class="plane-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+            </svg>
+            CAACTIMER
+        </div>
+        <a href="#download" class="dl-btn" id="navDlBtn">立即下载</a>
+    </nav>
+
+    <!-- 第一屏：Hero -->
+    <header class="snap-section">
+        <!-- ★ 动态背景层（已补全9个粒子） -->
+        <div class="hero-dynamic-bg" aria-hidden="true">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+
+            <!-- 大颗粒：四角暗区 -->
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+
+            <!-- 中颗粒：左右边缘 -->
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+
+            <!-- 小尘埃：底部+顶部边缘 -->
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
+            <div class="particle particle-9"></div>
+        </div>
+
+        <div class="hero-content fade-up">
+            <h1>地面站<br><span>倒计时终端</span></h1>
+            <p class="sub">专为CAAC地面站模拟考试打造的沉浸式计时工具<br>精准还原考场节奏，让每一次练习都算数</p>
+            <div class="mini-features">
+                <div class="mf-item">
+                    <div class="mf-icon" aria-hidden="true">⏱</div>
+                    <div class="mf-text"><strong>06:00 STD</strong>标准6分钟倒计时，精准控时</div>
+                </div>
+                <div class="mf-item">
+                    <div class="mf-icon" aria-hidden="true">🔊</div>
+                    <div class="mf-text"><strong>VOICE</strong>语音播报剩余时间，3分钟/1分钟自动提醒</div>
+                </div>
+                <div class="mf-item">
+                    <div class="mf-icon" aria-hidden="true">🛡</div>
+                    <div class="mf-text"><strong>LOCK</strong>计时结束自动锁定，禁止继续作答</div>
+                </div>
+                <div class="mf-item">
+                    <div class="mf-icon" aria-hidden="true">🔒</div>
+                    <div class="mf-text"><strong>OFFLINE</strong>纯本地运行，无需联网即用</div>
+                </div>
+                <div class="mf-item">
+                    <div class="mf-icon" aria-hidden="true">📊</div>
+                    <div class="mf-text"><strong>LOG</strong>成绩自动记录，支持回溯查看</div>
+                </div>
+                <div class="mf-item">
+                    <div class="mf-icon" aria-hidden="true">⚡</div>
+                    <div class="mf-text"><strong>&lt;5MB</strong>免安装零依赖，双击秒启动</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 第二屏：轮播 -->
+    <section class="snap-section">
+        <div class="carousel-section fade-up">
+            <div class="carousel" id="carousel">
+                <div class="carousel-viewport">
+                    <!-- Slide 0: 竖图左 + 文字右 -->
+                    <div class="carousel-slide active" data-index="0">
+                        <div class="slide-text">
+                            <h3>倒计时<br /><span>主界面</span></h3>
+                            <p>HUD大字号显示<br />剩余时间一目了然<br />配色还原考场系统</p>
+                        </div>
+                        <div class="img-frame-v">
+                            <div class="img-overlay"></div>
+                            <img src="main-ui.png" alt="CAACTimer倒计时主界面，HUD风格大字号显示剩余时间" loading="lazy" />
+                        </div>
+                    </div>
+                    <!-- Slide 1: 文字左 + 横图右 -->
+                    <div class="carousel-slide" data-index="1">
+                        <div class="img-frame-h">
+                            <div class="img-overlay"></div>
+                            <img src="lock-screen.png" alt="CAACTimer交卷阻断界面，全屏遮罩强制停止操作" loading="lazy" />
+                        </div>
+                        <div class="slide-text">
+                            <h3>计时结束<br /><span>阻断界面</span></h3>
+                            <p>到点全屏遮罩<br />强制停止操作<br />模拟真实交卷流程</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三屏：下载 -->
+    <section id="download" class="snap-section download-zone">
+        <div class="dl-icon fade-up" aria-hidden="true">🚀</div>
+        <h2 class="dl-title fade-up" style="transition-delay: 0.05s;">准备就绪<br><span>开始模考</span></h2>
+        <p class="dl-desc fade-up" style="transition-delay: 0.1s;">下载CAACTimer，立即进入沉浸式备考状态<br>零干扰 · 零延迟 · 零采集</p>
+        <a href="https://shturl.cc/r5gjWFOvjQqPHF6lL31CT3MJQ9OJOnKuYDvxNPZ4F4E2" class="big-dl fade-up" style="transition-delay: 0.15s;">立即下载</a>
+        <div class="dl-meta fade-up" style="transition-delay: 0.2s;">
+            <span>📦 V1.2.0</span>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>CAACTimer &copy; 2026 &middot; 基于 MIT 协议开源</p>
+        <p>本工具仅为个人备考辅助，考试内容请以中国民航局官方系统为准</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
